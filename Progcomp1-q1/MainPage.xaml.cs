@@ -41,12 +41,19 @@ namespace Progcomp1_q1
          **/
         private void cipherText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            clearText.Text = Alien.Decode(cipherText.Text);
+            clearText.Text = new Alien(12).Decode(cipherText.Text);
         }
 
         public class Alien
         {
-            public static string Decode(string cipher)
+            private int shift = 0;
+
+            public Alien(int shift)
+            {
+                this.shift = shift;
+            }
+
+            public string Decode(string cipher)
             {
                 char[] chars = cipher.ToCharArray();
 
@@ -56,25 +63,32 @@ namespace Progcomp1_q1
 
                     if (letter >= 'a' && letter <= 'z')
                     {
+                        letter -= 'a';
 
-                        if (letter > 'l')
+                        letter -= shift;
+
+                        if (letter < 0)
                         {
-                            letter -= 12;
+                            letter = 'z' + letter + 1;
                         }
                         else
                         {
-                            letter += 13;
+                            letter = 'a' + letter;
                         }
                     }
                     else if (letter >= 'A' && letter <= 'z')
                     {
-                        if (letter > 'M')
+                        letter -= 'A';
+
+                        letter -= shift;
+
+                        if (letter < 0)
                         {
-                            letter -= 13;
+                            letter = 'Z' + letter + 1;
                         }
                         else
                         {
-                            letter += 13;
+                            letter = 'A' + letter;
                         }
                     }
 
