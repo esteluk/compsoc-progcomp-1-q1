@@ -9,8 +9,8 @@
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Margin="60,60,60,0" TextWrapping="Wrap" Text="Alien Communique" VerticalAlignment="Top" Height="49" FontSize="36"/>
-        <TextBox Margin="60,114,60,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="cipherText" Margin="60,114,60,0" TextChanged="cipherText_TextChanged" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock Margin="60,230,60,0" TextWrapping="Wrap" Text="Clear text" VerticalAlignment="Top" Height="49" FontSize="36"/>
-        <TextBox Margin="60,284,60,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="clearText" Margin="60,284,60,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </Page>
